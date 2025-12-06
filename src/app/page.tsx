@@ -1,9 +1,5 @@
-import { ButtonDefault } from "@/shared/ui/button";
+import { MainPage } from "@/pages/main";
 
 export default function Home() {
-  return (
-    <div >
-      <ButtonDefault>Button</ButtonDefault>
-    </div>
-  );
+  return <MainPage />
 }

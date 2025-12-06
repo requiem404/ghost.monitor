@@ -1,0 +1,15 @@
+.main-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+
+  &__container {
+    width: 100%;
+    min-width: 800px;
+    max-width: 1200px;
+    padding: 24px;
+    border-radius: 6px;
+    background-color: var(--bg-secondary);
+  }
+}
