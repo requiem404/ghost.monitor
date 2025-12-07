@@ -1,43 +1,38 @@
+'use client';
+
+import { QueryClient, useQuery } from "@tanstack/react-query";
 import { getClasses } from "./styles/get-classes"
 import { Ghost, GhostCard } from "@/entities/ghost"
 
+async function fetchGhosts(): Promise<Ghost[]> {
+  const response = await fetch('/api/ghost');
+  if (!response.ok) {
+    throw new Error('Failed to fetch spirits');
+  }
+  return response.json();
+}
 
-const ghosts: Ghost[] = [
-  {
-    name: 'Phantom Shadow',
-    status: 'active',
-    location: 'Old Mansion',
-    dangerLevel: 'high',
-  },
-  {
-    name: 'Whispering Wraith',
-    status: 'caught',
-    location: 'Abandoned Warehouse',
-    dangerLevel: 'medium',
-  },
-  {
-    name: 'Flickering Spirit',
-    status: 'active',
-    location: 'Haunted Forest',
-    dangerLevel: 'low',
-  },
-  {
-    name: 'Lingering Shade',
-    status: 'caught',
-    location: 'Creepy Cemetery',
-    dangerLevel: 'medium',
-  },
-  {
-    name: 'Veiled Apparition',
-    status: 'active',
-    location: 'Derelict Castle',
-    dangerLevel: 'high',
-  },
-];
-
+export function useGhosts() {
+  return useQuery({
+    queryKey: ['ghosts'],
+    queryFn: fetchGhosts,
+    refetchOnWindowFocus: false,
+  });
+}
 export const MainPage = () => {
   const { cnRoot, cnContainer } = getClasses()
 
+  const { data: ghosts, isLoading, error } = useGhosts();
+
+  if (!ghosts || ghosts.length === 0) {
+    return (
+      <div className={cnRoot}>
+        <div className={cnContainer}>
+          <div>No spirits detected</div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className={cnRoot}>
       <div className={cnContainer}>
