@@ -5,10 +5,16 @@ import { WithClassName } from "@/shared/types"
 import { Ghost } from "../../api"
 import { getClasses } from "./styles/get-classes"
 
-export type GhostCardProps = Ghost & WithClassName
+export type GhostCardProps = {
+  onCapture: () => void;
+} & Ghost & WithClassName
 
-export const GhostCard: FC<GhostCardProps> = ({ name, location, status, dangerLevel, className }) => {
+
+
+export const GhostCard: FC<GhostCardProps> = ({ name, location, status, dangerLevel, className, onCapture }) => {
   const { cnRoot, cnTitle, cnStatus, cnLocation, cnTitleWrapper, cnDangerStatus } = getClasses({ className, dangerLevel });
+
+  const isCaptured = status === "captured";
 
   return (
     <div className={cnRoot}>
@@ -20,7 +26,7 @@ export const GhostCard: FC<GhostCardProps> = ({ name, location, status, dangerLe
         <span className={cnStatus}>{status}</span>
       </div>
       <span className={cnLocation}>{location}</span>
-      <ButtonDefault text="Capture" />
+      <ButtonDefault text={isCaptured ? "Captured" : "Capture"} disabled={isCaptured} onClick={onCapture} />
     </div>
   )
 }

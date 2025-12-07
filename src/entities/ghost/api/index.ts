@@ -2,4 +2,6 @@ export {
   type Ghost,
   type GhostStatus,
   type GhostDangerLevel,
-} from './types'
+  type CaptureResponse
+} from './types';
+export { ghostKeys } from './keys';
