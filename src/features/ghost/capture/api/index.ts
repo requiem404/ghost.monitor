@@ -1,0 +1,1 @@
+export { useCaptureGhost } from './use-capture-ghost';

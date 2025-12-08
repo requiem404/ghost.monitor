@@ -1,0 +1,45 @@
+.ghost-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  background-color: var(--bg-tertiary);
+
+  &__danger-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  &__danger-status--low {
+    background-color: var(--danger-low);
+  }
+
+  &__danger-status--medium {
+    background-color: var(--danger-medium);
+  }
+
+  &__danger-status--high {
+    background-color: var(--danger-high);
+  }
+
+  &__status {
+    color: var(--text);
+  }
+
+  &__title {
+    color: var(--text);
+    margin-right: 6px;
+  }
+
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+
+  &__location {
+    color: var(--text);
+  }
+}
