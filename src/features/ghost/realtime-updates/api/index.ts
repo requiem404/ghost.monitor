@@ -1,0 +1,1 @@
+export { useGhostEvents } from './use-ghost-events';

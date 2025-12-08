@@ -1,4 +1,4 @@
-import { WithChildren, WithClassName } from "@/shared/types"
+import { WithClassName } from "@/shared/types"
 import { ButtonHTMLAttributes, FC } from "react"
 import { getClasses } from "./styles/get-classes";
 

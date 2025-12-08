@@ -9,8 +9,14 @@ export const getClasses = () => {
 
   const cnContainer = cn('main-page__container');
 
+  const cnInfo = cn('main-page__info');
+
+  const cnTitle = cn('main-page__title');
+
   return {
     cnRoot,
+    cnInfo,
+    cnTitle,
     cnContainer
   }
 }

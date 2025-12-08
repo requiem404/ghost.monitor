@@ -3,13 +3,25 @@
   justify-content: center;
   align-items: center;
   padding-top: 20px;
+  padding-bottom: 20px;
 
   &__container {
     width: 100%;
+    min-height: 80vh;
     min-width: 800px;
     max-width: 1200px;
     padding: 24px;
     border-radius: 6px;
     background-color: var(--bg-secondary);
+  }
+
+  &__info {
+    color: var(--text);
+  }
+
+  &__title {
+    font-size: 24px;
+    color: var(--text);
+    margin-bottom: 12px;
   }
 }
